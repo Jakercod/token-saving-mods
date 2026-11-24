@@ -360,7 +360,7 @@ async function detect($: EngineInterface) {
     if (out === '5m' || out === '1h') detected = out
     return
   }
-  const r = await $.process.run(['python3', `${$.plugin.root}/bin/ttl.py`, sid])
+  const r = await $.process.run(['python3', `${$.plugin.root}/scripts/ttl.py`, sid])
   const out = r.stdout.trim()
   if (out === '5m' || out === '1h') detected = out
   else if (r.exitCode !== 0) await log($, `ttl check failed: ${r.stderr.slice(0, 200)}`)
